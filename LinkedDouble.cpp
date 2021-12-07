@@ -9,12 +9,20 @@ template<class T>
 LinkedDouble<T>::LinkedDouble() {
     head = last = NULL;
 }
-
+/**
+ * @brief Me corrobora que el primer y ultimo nodo es nulo o vacio
+ * @tparam T variable de tipo template o  variable generica
+ * @return que el primero y ultimo nodo es nullo o vacio
+ */
 template<class T>
 bool LinkedDouble<T>::isEmpty() {
     return head == NULL && last == NULL;
 }
-
+/**
+ * @brief Agrega Nodo al principio de la lista
+ * @tparam T variable de tipo template o  variable generica
+ * @param info  Le llega la informacion que contiene el objeto que se va agregar en la lista
+ */
 template<class T>
 void LinkedDouble<T>::addNodeFirst(T info) {
     NodeDouble<T> *node = new NodeDouble<T>(info);
@@ -26,7 +34,11 @@ void LinkedDouble<T>::addNodeFirst(T info) {
         head = node;
     }
 }
-
+/**
+ * @brief Agrega nodos al final de la lista
+ * @tparam T variable de tipo template o  variable generica
+ * @param info  Le llega la informacion que contiene el objeto que se va agregar al final de la lista
+ */
 template<class T>
 void LinkedDouble<T>::addNodeLast(T info) {
     NodeDouble<T> *node = new NodeDouble<T>(info);
@@ -38,7 +50,11 @@ void LinkedDouble<T>::addNodeLast(T info) {
         last = node; //cmbiamos el apuntado last al nuevo nodo para agrehar otros
     }
 }
-
+/**
+ * @brief Agrega nodos de mayor a menor segun la clave del id
+ * @tparam T variable de tipo template o  variable generica
+ * @param info  Le llega la informacion que contiene el objeto que se va agregar al final de la lista
+ */
 template<class T>
 void LinkedDouble<T>::addNodeSorted(T info) {
     NodeDouble<T> *node = new NodeDouble<T>(info);
@@ -63,7 +79,12 @@ void LinkedDouble<T>::addNodeSorted(T info) {
         act->previous = node;
     }
 }
-
+/**
+ * @brief Encontrar la direccion de memoria en la que se encuentra nodo
+ * @tparam T variable de tipo template o  variable generica
+ * @param id string que me ayuda a buscar el objeto
+ * @return Objeto de tipo nodo con la direccion que necesitamos
+ */
 template<class T>
 NodeDouble<T> *LinkedDouble<T>::findNode(std::string id) {
     NodeDouble<T> *aux = head;
@@ -73,7 +94,12 @@ NodeDouble<T> *LinkedDouble<T>::findNode(std::string id) {
 
     return aux;
 }
-
+/**
+ * @brief Metodo que me encuentra la informacion de un nodo
+ * @tparam T variable de tipo template o  variable generica
+ * @param id string que me ayuda a buscar la informacion del  objeto
+ * @return Informacion completa de lo que hay dentro del nodo con ayuda de la direccion de memoria
+ */
 template<class T>
 T *LinkedDouble<T>::findInfo(std::string id) {
     NodeDouble<T> *aux = head;
@@ -87,7 +113,12 @@ T *LinkedDouble<T>::findInfo(std::string id) {
 
     return NULL;
 }
-
+/**
+ * @brief Metodo para agregar un nodo anterior a otro
+ * @tparam T variable de tipo template o  variable generica
+ * @param before  el nodo al que le vamos agregar un nuevo nodo previo
+ * @param info Informacion del nuevo nodo
+ */
 template<class T>
 void LinkedDouble<T>::addNodeBeforeTo(NodeDouble<T> *before, T info) {
     NodeDouble<T> *node = new NodeDouble<T>(info);
@@ -100,7 +131,12 @@ void LinkedDouble<T>::addNodeBeforeTo(NodeDouble<T> *before, T info) {
         before->previous = node;
     }
 }
-
+/**
+ * @brief Metodo para agregar un nodo despues de otro
+ * @tparam T variable de tipo template o  variable generica
+ * @param after el nodo anterior al nuevo nodo a agregar
+ * @param info informacion del objeto que va estar dentro del nuevo nodo
+ */
 template<class T>
 void LinkedDouble<T>::addNodeAfterTo(NodeDouble<T> *after, T info) {
     NodeDouble<T> *node = new NodeDouble<T>(info);
@@ -113,7 +149,12 @@ void LinkedDouble<T>::addNodeAfterTo(NodeDouble<T> *after, T info) {
         after->next->previous = node;
     }
 }
-
+/**
+ * @brief Metodo para Recorrer el metodo ya sea de adelante para atras o atras para adelante
+ * @tparam T  variable de tipo template o  variable generica
+ * @param recorrer Boleano que nos indica de que forma se va a recorrer el vector compuesto por los nodos
+ * @return Muestra la lista completa de nodos
+ */
 template<class T>
 std::vector<T> LinkedDouble<T>::getLinkedList(bool recorrer) {
     std::vector<T> out;
@@ -124,7 +165,11 @@ std::vector<T> LinkedDouble<T>::getLinkedList(bool recorrer) {
     }
     return out;
 }
-
+/**
+ * @brief Metodo para obtener cuantos elementos hay dentro de lista
+ * @tparam T variable de tipo template o  variable generica
+ * @return entero que me muestra tamaño del vector
+ */
 template<class T>
 int LinkedDouble<T>::getSize() {
     int cont = 0;
@@ -135,6 +180,12 @@ int LinkedDouble<T>::getSize() {
     }
     return cont;
 }
+/**
+ * @brief Metodo Para buscar dentro de lista por medio de un indice
+ * @tparam T  variable de tipo template o  variable generica
+ * @param indice entero que me dice cual objeto o nodo devolver
+ * @return me devuelve un apuntador con la informacion
+ */
 
 template<class T>
 T *LinkedDouble<T>::getObject(int indice) {
@@ -146,7 +197,12 @@ T *LinkedDouble<T>::getObject(int indice) {
     }
     return &aux->info;
 }
-
+/**
+ * @brief Me ayuda a borrar un nodo enviandole uno como parametro
+ * @tparam T  variable de tipo template o  variable generica
+ * @param node  Vairable de tipo nodoDoble que me indicara cual borrar de la lista
+ * @return Me devuelve el nodo borrado
+ */
 template<class T>
 T LinkedDouble<T>::deleteNode(NodeDouble<T> *node) {
     T out = node->info;
@@ -175,19 +231,30 @@ T LinkedDouble<T>::deleteNode(NodeDouble<T> *node) {
     delete (node);
     return out;
 }
-
+/**
+ * @brief Muestra el primer objeto del nodo
+ * @tparam T  variable de tipo template o  variable generica
+ * @return  muestra la cabeza de la lista
+ */
 template<class T>
 T LinkedDouble<T>::getFirst() {
     T out=head->info;
     return out;
 }
-
+/**
+ * @brief Muestra el ultimo elemento de la lista
+ * @tparam T  variable de tipo template o  variable generica
+ * @return Me muestra last o ultimo elemento de la lista
+ */
 template<class T>
 T LinkedDouble<T>::getLast() {
    T out=last->info;
     return out;
 }
-
+/**
+ * @brief Destructor de la lista
+ * @tparam T  variable de tipo template o  variable generica
+ */
 template<class T>
 LinkedDouble<T>::~LinkedDouble() {
     NodeDouble<T> *aux = head;

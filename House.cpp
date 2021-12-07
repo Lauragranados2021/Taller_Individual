@@ -1,7 +1,9 @@
 //
 // Created by lauri on 2/12/2021.
 //
-
+/**
+ * @brief Clase objeto que me pide y muestra los atributos de la clase
+ */
 #include "House.h"
 
 House::House() {}

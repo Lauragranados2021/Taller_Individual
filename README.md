@@ -1,4 +1,4 @@
-Taller Individual 
+#Taller Individual 
 Laura Nicol Granados Bayona 
 202011019
 Manual del Programador se encuentra en la carpeta Manual del programador>>html>>index.html>>clases 

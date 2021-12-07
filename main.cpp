@@ -28,8 +28,8 @@ using namespace std;
 
     int main(){
         char option;
-        string menu = "<<<<<<MENU PRINCIPAL>>>>>>>\n\n"
-                     "1. Agregar casa al principio\n"
+        string Bienvenida = "<<<<<<MENU PRINCIPAL>>>>>>>\n\n";
+        string menu =   "1. Agregar casa al principio\n"
                      "2. Agregar casa al Final\n"
                      "3. Agregar casa despues de\n"
                      "4. Agregar casa antes de \n"
@@ -43,6 +43,7 @@ using namespace std;
                       "X. Salir ";
 
         do{
+            cout<<Bienvenida<<endl;
             cout<<menu<<endl;
             option = getchar();
             switch( option ){
@@ -101,14 +102,14 @@ void MostrarFirst() {
 
 void DeleteCasas() {
 string id;
-cout<<"Digite el ID de la  casa";
+cout<<" Digite el ID de la  casa: \n";
 cin>>id;
 cout<<house->DeleteNode(id);
 }
 
 void EncontrarCasa() {
 string id;
-cout<<"Digite el ID de la casa \n";
+cout<<" Digite el ID de la casa \n";
 cin>>id;
 cout<<house->findHouses(id);
 }
@@ -123,15 +124,15 @@ void agregarcasasordenadas() {
     string id, area, color;
     short windows;
     string direccion;
-    cout << "escriba el ID de la casa: "<<endl;
+    cout << "Digite el ID de la casa: "<<endl;
     cin >> id;
     cout << "Digite la direccion de la casa: "<<endl;
     cin >> direccion;
-    cout << "Digite el area en metros cuadrados de la casa "<<endl;
+    cout << "Digite el area en metros cuadrados de la casa: "<<endl;
     cin >> area;
-    cout << "Digite el color de la fachada de la casa "<<endl;
+    cout << "Digite el color de la fachada de la casa: "<<endl;
     cin >> color;
-    cout << "Digite la cantidad de ventanas"<<endl;
+    cout << "Digite la cantidad de ventanas:  "<<endl;
     cin >> windows;
     cout << house->addNodeFirstorLastorSorted(id, direccion, area, windows, color, 3);
 
@@ -141,17 +142,17 @@ void agregarcasaentreBefore() {
     string idnuevo, area, color, idantiguo;
     short windows;
     string direccion;
-    cout << "escriba el ID de la casa: ";
+    cout << "escriba el ID de la casa: "<<endl;
     cin >> idnuevo;
-    cout << "Digite la direccion de la casa: ";
+    cout << "Digite la direccion de la casa: "<<endl;
     cin >> direccion;
-    cout << "Digite el area en metros cuadrados de la casa ";
+    cout << "Digite el area en metros cuadrados de la casa:  "<<endl;
     cin >> area;
-    cout << "Digite el color de la fachada de la casa ";
+    cout << "Digite el color de la fachada de la casa: "<<endl;
     cin >> color;
-    cout << "Digite la cantidad de ventanas";
+    cout << "Digite la cantidad de ventanas:  "<<endl;
     cin >> windows;
-    cout << "escriba el ID de la casa anterior: ";
+    cout << "escriba el ID de la casa anterior: "<<endl;
     cin >> idantiguo;
     cout << house->addNodeAfterorBefore(idnuevo,direccion,area,windows,color,2,idantiguo);
 }
@@ -160,17 +161,17 @@ void agregarcasaentreafter() {
     string idnuevo, area, color, idantiguo;
     short windows;
     string direccion;
-    cout << "escriba el ID de la casa: ";
+    cout << "escriba el ID de la casa: "<<endl;
     cin >> idnuevo;
-    cout << "Digite la direccion de la casa: ";
+    cout << "Digite la direccion de la casa: "<<endl;
     cin >> direccion;
-    cout << "Digite el area en metros cuadrados de la casa ";
+    cout << "Digite el area en metros cuadrados de la casa:  "<<endl;
     cin >> area;
-    cout << "Digite el color de la fachada de la casa ";
+    cout << "Digite el color de la fachada de la casa:  "<<endl;
     cin >> color;
-    cout << "Digite la cantidad de ventanas";
+    cout << "Digite la cantidad de ventanas:  "<<endl;
     cin >> windows;
-    cout << "escriba el ID de la casa siguiente: ";
+    cout << "escriba el ID de la casa siguiente: "<<endl;
     cin >> idantiguo;
     cout << house->addNodeAfterorBefore(idnuevo,direccion,area,windows,color,1,idantiguo);
 }
@@ -179,15 +180,15 @@ void agregarcasaFinal() {
     string id, area, color;
     short windows;
     string direccion;
-        cout << "escriba el ID de la casa: ";
+        cout << "escriba el ID de la casa: "<<endl;
         cin >> id;
-        cout << "Digite la direccion de la casa: ";
+        cout << "Digite la direccion de la casa: "<<endl;
         cin >> direccion;
-        cout << "Digite el area en metros cuadrados de la casa ";
+        cout << "Digite el area en metros cuadrados de la casa: "<<endl;
         cin >> area;
-        cout << "Digite el color de la fachada de la casa ";
+        cout << "Digite el color de la fachada de la casa: "<<endl;
         cin >> color;
-        cout << "Digite la cantidad de ventanas";
+        cout << "Digite la cantidad de ventanas: "<<endl;
         cin >> windows;
         cout << house->addNodeFirstorLastorSorted(id, direccion, area, windows, color, 2);
 }
@@ -198,15 +199,15 @@ void agregarcasaPrincipio() {
     string direccion;
 
     try {
-        cout << "escriba el ID de la casa: ";
+        cout << "escriba el ID de la casa: "<<endl;
         cin >> id;
-        cout << "Digite la direccion de la casa: ";
+        cout << "Digite la direccion de la casa: "<<endl;
         cin>>direccion;
-        cout << "Digite el area en metros cuadrados de la casa ";
+        cout << "Digite el area en metros cuadrados de la casa:  "<<endl;
         cin >> area;
-        cout <<" Digite el color de la fachada de la casa ";
+        cout <<" Digite el color de la fachada de la casa: "<<endl;
         cin >> color;
-        cout <<" Digite la cantidad de ventanas :";
+        cout <<" Digite la cantidad de ventanas: "<<endl;
         cin >> windows;
         cout << house->addNodeFirstorLastorSorted(id,direccion,area,windows,color,1);
     } catch (exception x) {
