@@ -7,6 +7,8 @@
 #include <vector>
 #include <string>
 #include "NodeDouble.h"
+#include "House.h"
+
 template <class T>
 class LinkedDouble {
 
@@ -32,7 +34,7 @@ public:
 
 private:
     NodeDouble<T>*head;
-    NodeDouble<T>last;
+    NodeDouble<T>*last;
 };
 
 

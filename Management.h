@@ -16,6 +16,10 @@ public:
     bool addNodeAfterorBefore(std::string,std::string,std::string,short,std::string,int,std::string);
     bool emptyList();
     void getList();
+    std::string findHouses(std::string);
+    std::string MostrarFirst();
+    std::string mostrarLast();
+
 };
 
 

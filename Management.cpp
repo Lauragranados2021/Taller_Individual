@@ -90,3 +90,21 @@ bool Management::addNodeAfterorBefore(std::string idnuevo, std::string direccion
     }
     return false;
 }
+
+std::string Management::findHouses(std::string id) {
+    if(nodeExist(id)==false){
+      return casa->findInfo(id)->getId()+" "+casa->findInfo(id)->getDireccion()+" "+casa->findInfo(id)->getArea()+" " +std::to_string(casa->findInfo(id)->getWindows())+" "+casa->findInfo(id)->getColor();
+    }
+return "Casa no encontrada";
+}
+
+std::string Management::MostrarFirst() {
+    return casa->getFirst().getId()+" "+casa->getFirst().getDireccion()+" "+casa->getFirst().getArea()+" " +std::to_string(casa->getFirst().getWindows())+casa->getFirst().getColor();
+
+}
+
+std::string Management::mostrarLast() {
+    return casa->getLast().getId()+" "+casa->getLast().getDireccion()+" "+casa->getLast().getArea()+" " +std::to_string(casa->getLast().getWindows())+casa->getLast().getColor();
+}
+
+

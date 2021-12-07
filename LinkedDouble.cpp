@@ -3,6 +3,7 @@
 //
 
 #include "LinkedDouble.h"
+#include "House.h"
 
 template<class T>
 LinkedDouble<T>::LinkedDouble() {
@@ -76,9 +77,12 @@ NodeDouble<T> *LinkedDouble<T>::findNode(std::string id) {
 template<class T>
 T *LinkedDouble<T>::findInfo(std::string id) {
     NodeDouble<T> *aux = head;
+
     while (aux != NULL) {
-        if (aux->info.getId().compare(id) == 0)
+        if (aux->info.getId().compare(id) == 0) {
+
             return &aux->info;
+        }
     }
 
     return NULL;
@@ -146,33 +150,42 @@ T *LinkedDouble<T>::getObject(int indice) {
 template<class T>
 T LinkedDouble<T>::deleteNode(NodeDouble<T> *node) {
     T out = node->info;
-    if (node == head == last) {
-        head = head->next;
-        last = last.previous;
+    NodeDouble<T>* ant=NULL;
+    if (node == head && node->next== NULL) {
+        head = NULL;
+        last = NULL;
     } else {
-        NodeDouble<T> *aux = head;
-        NodeDouble<T> *act = node->next;
-        while (aux->next != node) {
-            aux = aux->next;
+        if(node==head){
+            head=head->next;
+            head->previous=NULL;
+        }else if(node==last){
+            last=last->previous;
+            last->next=NULL;
+
+        }else{
+            NodeDouble<T> *aux = head;
+            while (aux->next != node) {
+                aux = aux->next;
+            }
+            aux->next=node->next;
+            ant=node->next;
+            ant->previous=aux;
         }
-
-        aux->next = act;
-        act->previous = aux;
-
     }
     delete (node);
+    return out;
 }
 
 template<class T>
 T LinkedDouble<T>::getFirst() {
-    NodeDouble<T> *aux = head;
-    return &head->info;
+    T out=head->info;
+    return out;
 }
 
 template<class T>
 T LinkedDouble<T>::getLast() {
-    NodeDouble<T> *aux = head;
-    return &last.info;
+   T out=last->info;
+    return out;
 }
 
 template<class T>

@@ -16,13 +16,19 @@ void MostrarLista();
 
 void EncontrarCasa();
 
+void DeleteCasas();
+
+void MostrarFirst();
+
+void MostrarLast();
+
 Management *house=new Management();
 using namespace std;
 
 
     int main(){
         char option;
-        char *menu = "<<<<<<MENU PRINCIPAL>>>>>>>\n\n"
+        string menu = "<<<<<<MENU PRINCIPAL>>>>>>>\n\n"
                      "1. Agregar casa al principio\n"
                      "2. Agregar casa al Final\n"
                      "3. Agregar casa despues de\n"
@@ -32,14 +38,12 @@ using namespace std;
                      "7. Borrar casa \n"
                      "8. Mostrar la primera casa \n"
                      "9. Mostrar la ultima casa \n"
-                     "10. Mostrar todas las casas \n"
+                     "a. Mostrar todas las casas \n"
 
-                     "11. Borrar la lista  \n\n";
-
-                     "X. Salir\n\nDigite Opcion  ";
+                      "X. Salir ";
 
         do{
-            printf(menu);
+            cout<<menu<<endl;
             option = getchar();
             switch( option ){
                 case '1' :
@@ -66,51 +70,68 @@ agregarcasaPrincipio();
                         EncontrarCasa();
                     break;
                 case'7':
-
+DeleteCasas();
                     break;
                 case'8':
-
+MostrarFirst();
                     break;
                 case'9':
-
+MostrarLast();
                     break;
                 case 'a':
-MostrarLista();
+                 MostrarLista();
                 break;
-                case 'b':
-
-                    break;
-
-
+                    fflush(stdin);
 
 
             }
         }while(toupper(option) != 'X');
+        delete(house);
         return EXIT_SUCCESS;
     }
 
-void EncontrarCasa() {
+void MostrarLast() {
+cout<<house->mostrarLast();
+}
 
+void MostrarFirst() {
+        cout<<house->MostrarFirst();
+
+}
+
+void DeleteCasas() {
+string id;
+cout<<"Digite el ID de la  casa";
+cin>>id;
+cout<<house->DeleteNode(id);
+}
+
+void EncontrarCasa() {
+string id;
+cout<<"Digite el ID de la casa \n";
+cin>>id;
+cout<<house->findHouses(id);
 }
 
 void MostrarLista() {
-
+house->getList();
 
 }
+
 
 void agregarcasasordenadas() {
     string id, area, color;
     short windows;
     string direccion;
-    cout << "escriba el ID de la casa: ";
+    cout << "escriba el ID de la casa: "<<endl;
     cin >> id;
-    cout << "Digite la direccion de la casa: ";
+    cout << "Digite la direccion de la casa: "<<endl;
     cin >> direccion;
-    cout << "Digite el area en metros cuadrados de la casa ";
+    cout << "Digite el area en metros cuadrados de la casa "<<endl;
     cin >> area;
-    cout << "Digite el color de la fachada de la casa ";
+    cout << "Digite el color de la fachada de la casa "<<endl;
     cin >> color;
-    cout << "Digite la cantidad de ventanas";
+    cout << "Digite la cantidad de ventanas"<<endl;
     cin >> windows;
     cout << house->addNodeFirstorLastorSorted(id, direccion, area, windows, color, 3);
 
@@ -183,9 +204,9 @@ void agregarcasaPrincipio() {
         cin>>direccion;
         cout << "Digite el area en metros cuadrados de la casa ";
         cin >> area;
-        cout << "Digite el color de la fachada de la casa ";
+        cout <<" Digite el color de la fachada de la casa ";
         cin >> color;
-        cout << "Digite la cantidad de ventanas";
+        cout <<" Digite la cantidad de ventanas :";
         cin >> windows;
         cout << house->addNodeFirstorLastorSorted(id,direccion,area,windows,color,1);
     } catch (exception x) {
